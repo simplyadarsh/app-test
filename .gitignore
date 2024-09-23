@@ -1,5 +1,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
+app-test-works.code-workspace
+.vscode
 
 ### IntelliJ IDEA ###
 .idea/
@@ -7,3 +9,4 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+
