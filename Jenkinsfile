@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environment{
+        JAR_FILE = 'target/*.jar'
+    }
     tools{
         maven 'maven'
     }
@@ -21,12 +24,13 @@ pipeline{
         }
         stage('Build'){
             steps{
-                sh 'mvn clean package'
+                sh 'mvn clean package -DskipTests'
+                archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: false 
             }
         }
         stage('Deploy'){
             steps{
-                sh 'cd ./target && java -jar *.jar'
+                sh 'java -jar ${JAR_FILE}'
             }
         }
     }
